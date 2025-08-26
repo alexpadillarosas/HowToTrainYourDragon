@@ -27,12 +27,12 @@ class MarketplaceTableViewController: UITableViewController {
     }
     
     func loadDragons() {
-        dragons.append(Dragon(type: "BOULDER", species: "HOTBURPLE", bestAt: Dragon.Attribute.defence, attack: 45, defence: 80, speed: 32))
-        dragons.append(Dragon(type: "BOULDER", species: "GRONCKLE", bestAt: Dragon.Attribute.defence, attack: 40, defence: 81, speed: 37))
-        dragons.append(Dragon(type: "STRIKE", species: "NIGHT FURY", bestAt: Dragon.Attribute.attack, attack: 79, defence: 36, speed: 69))
-        dragons.append(Dragon(type: "STRIKE", species: "LIGHT FURY", bestAt: Dragon.Attribute.attack, attack: 79, defence: 32, speed: 54))
-        dragons.append(Dragon(type: "TRACKER", species: "DEADLY NADDER", bestAt: Dragon.Attribute.defence, attack: 50, defence: 75, speed: 54))
-        dragons.append(Dragon(type: "STOCKER", species: "TERRIBLE TERROR", bestAt: Dragon.Attribute.speed, attack: 35, defence: 25, speed: 72))
+        dragons.append(Dragon(id: "BOULDER-HOTBURPLE",type: "BOULDER", species: "HOTBURPLE", bestAt: Attribute.defence, attack: 45, defence: 80, speed: 32))
+        dragons.append(Dragon(id: "BOULDER-GRONCKLE",type: "BOULDER", species: "GRONCKLE", bestAt: Attribute.defence, attack: 40, defence: 81, speed: 37))
+        dragons.append(Dragon(id: "STRIKE-NIGHT FURY",type: "STRIKE", species: "NIGHT FURY", bestAt: Attribute.attack, attack: 79, defence: 36, speed: 69))
+        dragons.append(Dragon(id: "STRIKE-LIGHT FURY",type: "STRIKE", species: "LIGHT FURY", bestAt: Attribute.attack, attack: 79, defence: 32, speed: 54))
+        dragons.append(Dragon(id: "TRACKER-DEADLY NADDER",type: "TRACKER", species: "DEADLY NADDER", bestAt: Attribute.defence, attack: 50, defence: 75, speed: 54))
+        dragons.append(Dragon(id: "STOKER-TERRIBLE TERROR",type: "STOKER", species: "TERRIBLE TERROR", bestAt: Attribute.speed, attack: 35, defence: 25, speed: 72))
     }
 
     // MARK: - Table view data source

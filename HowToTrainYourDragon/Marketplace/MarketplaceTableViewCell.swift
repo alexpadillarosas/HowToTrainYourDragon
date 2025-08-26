@@ -34,13 +34,13 @@ class MarketplaceTableViewCell: UITableViewCell {
         dragonImageView.image = UIImage(named: dragon.species)
         
         switch dragon.bestAt {
-        case Dragon.Attribute.attack:
+        case Attribute.attack:
             bestAtImageView.image = UIImage(named: "broadsword")// To change the icon
             bestAtImageView.backgroundColor = UIColor.red   // to change the background color, as the icons have a transparent background
-        case Dragon.Attribute.defence:
+        case Attribute.defence:
             bestAtImageView.image = UIImage(named: "griffin-shield")
             bestAtImageView.backgroundColor = UIColor.orange
-        case Dragon.Attribute.speed:
+        case Attribute.speed:
             bestAtImageView.image = UIImage(named: "circular-sawblade")
             bestAtImageView.backgroundColor = UIColor.green
         }
