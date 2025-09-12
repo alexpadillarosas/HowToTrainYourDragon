@@ -10,10 +10,12 @@
 		FA57A7942E589E4D00169ED1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA57A7932E589E4D00169ED1 /* FirebaseAuth */; };
 		FA57A7962E589E4D00169ED1 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FA57A7952E589E4D00169ED1 /* FirebaseCore */; };
 		FA57A7982E589E4D00169ED1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA57A7972E589E4D00169ED1 /* FirebaseFirestore */; };
+		FAB9995C2E73C42B00788CF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB9995B2E73C42A00788CF5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA82BC1E2E4F68C100999415 /* HowToTrainYourDragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowToTrainYourDragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB9995B2E73C42A00788CF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -54,6 +56,7 @@
 		FA82BC152E4F68C100999415 = {
 			isa = PBXGroup;
 			children = (
+				FAB9995B2E73C42A00788CF5 /* GoogleService-Info.plist */,
 				FA82BC202E4F68C100999415 /* HowToTrainYourDragon */,
 				FA82BC1F2E4F68C100999415 /* Products */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB9995C2E73C42B00788CF5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
