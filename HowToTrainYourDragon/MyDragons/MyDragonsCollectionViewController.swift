@@ -30,9 +30,9 @@ class MyDragonsCollectionViewController: UICollectionViewController {
     }
 
     func loadMyDragons(){
-        myDragons.append(MyDragon(id: "11111", name: "Tommy", bloodline: "STOKER-TERRIBLE TERROR", attack: 20, defence: 15, speed: 40, acquiredOn: Timestamp(date: Date()), wins: 0, draws: 1, losses: 2))
-        myDragons.append(MyDragon(id: "22222", name: "Grump", bloodline: "BOULDER-HOTBURPLE", attack: 30, defence: 70, speed: 25, acquiredOn: Timestamp(date: Date()), wins: 1, draws: 0, losses: 1))
-        myDragons.append(MyDragon(id: "33333", name: "Toothless", bloodline: "STRIKE-NIGHT FURY", attack: 55, defence: 60, speed: 100, acquiredOn: Timestamp(date: Date()), wins: 0, draws: 0, losses: 0))
+//        myDragons.append(MyDragon(id: "11111", name: "Tommy", bloodline: "STOKER-TERRIBLE TERROR", attack: 20, defence: 15, speed: 40, acquiredOn: Timestamp(date: Date()), wins: 0, draws: 1, losses: 2))
+//        myDragons.append(MyDragon(id: "22222", name: "Grump", bloodline: "BOULDER-HOTBURPLE", attack: 30, defence: 70, speed: 25, acquiredOn: Timestamp(date: Date()), wins: 1, draws: 0, losses: 1))
+//        myDragons.append(MyDragon(id: "33333", name: "Toothless", bloodline: "STRIKE-NIGHT FURY", attack: 55, defence: 60, speed: 100, acquiredOn: Timestamp(date: Date()), wins: 0, draws: 0, losses: 0))
     }
     
 
@@ -55,10 +55,10 @@ class MyDragonsCollectionViewController: UICollectionViewController {
     
         // Configure the cell
         let myDragon = myDragons[indexPath.item]
-        if let type = myDragon.bloodline.split(separator: "-").first, let species = myDragon.bloodline.split(separator: "-").last {
-            cell.setup(dragonName: myDragon.name, type: String(type), species: String(species), win: myDragon.wins, draw: myDragon.draws, loss: myDragon.losses)
-        
-        }
+//        if let type = myDragon.bloodline.split(separator: "-").first, let species = myDragon.bloodline.split(separator: "-").last {
+//            cell.setup(dragonName: myDragon.name, type: String(type), species: String(species), win: myDragon.wins, draw: myDragon.draws, loss: myDragon.losses)
+//        
+//        }
         
         
         return cell

@@ -43,13 +43,13 @@ class MyDragonDetailsTableViewController: UITableViewController {
         //currentDragon.bloodline = "STOKER-TERRIBLE TERROR"
         //TODO: Type, species, bestAt will be replaced by querying the general dragon collection and take the information from there.
         //bestAtLabel.text =
-        typeLabel.text = dragon.bloodline.components(separatedBy: "-").first ?? ""
-        let species = dragon.bloodline.components(separatedBy: "-").last ?? ""
-        speciesLabel.text = species
+//        typeLabel.text = dragon.bloodline.components(separatedBy: "-").first ?? ""
+//        let species = dragon.bloodline.components(separatedBy: "-").last ?? ""
+//        speciesLabel.text = species
         //setBest At from the dragon collection
 
         
-        dragonImageView.image = UIImage(named: species)
+//        dragonImageView.image = UIImage(named: species)
         
         
         winsLabel.text = String(dragon.wins)

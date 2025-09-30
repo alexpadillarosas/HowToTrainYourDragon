@@ -29,26 +29,36 @@ class MarketplaceTableViewCell: UITableViewCell {
     func setup(dragon : Dragon){
         typeLabel.text = dragon.type
         speciesLabel.text = dragon.species
-        bestAtLabel.text = String(describing: dragon.bestAt).capitalized //convert an Enum into a string, then capitalize the 1st character
+        //rawValue gives me the value assigned to the enum
+        bestAtLabel.text = dragon.bestAt.rawValue.lowercased().capitalized
+//        bestAtLabel.text = String(describing: dragon.bestAt).capitalized //convert an Enum into a string, then capitalize the 1st character
+        
+//        bestAtLabel.text = dragon.bestAt.capitalized
         
         dragonImageView.image = UIImage(named: dragon.species)
         
         switch dragon.bestAt {
         case Attribute.attack:
+//        case "ATTACK":
             bestAtImageView.image = UIImage(named: "broadsword")// To change the icon
             bestAtImageView.backgroundColor = UIColor.red   // to change the background color, as the icons have a transparent background
         case Attribute.defence:
+//        case "DEFENSE":
             bestAtImageView.image = UIImage(named: "griffin-shield")
             bestAtImageView.backgroundColor = UIColor.orange
         case Attribute.speed:
+//        case "BOULDER":
             bestAtImageView.image = UIImage(named: "circular-sawblade")
-            bestAtImageView.backgroundColor = UIColor.green
+            bestAtImageView.backgroundColor = UIColor.systemGreen
+//        default:
+//            bestAtImageView.image = UIImage(named: "circular-sawblade")
+//            bestAtImageView.backgroundColor = UIColor.green
         }
-        
+
         attackValueLabel.text = String(dragon.attack)
         defenceValueLabel.text = String(dragon.defence)
         speedValueLabel.text = String(dragon.speed)
-        
+
         //initial values for all progressViews, start at 0, then we set the real value with animation
         attackProgressView.progress = 0
         defenceProgressView.progress = 0

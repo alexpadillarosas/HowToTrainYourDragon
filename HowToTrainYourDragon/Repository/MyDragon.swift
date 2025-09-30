@@ -21,4 +21,5 @@ struct MyDragon {
     var draws : Int
     var losses : Int
     
+    
 }

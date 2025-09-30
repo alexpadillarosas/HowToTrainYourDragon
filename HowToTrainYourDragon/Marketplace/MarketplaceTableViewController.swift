@@ -8,9 +8,10 @@
 import UIKit
 
 class MarketplaceTableViewController: UITableViewController {
+    let db = DragonsRepository.sharedDragonsRepository
+    var marketplace : [Dragon] = []
+    @IBOutlet var marketplaceTableView: UITableView!
     
-    var dragons : [Dragon] = []
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,19 +21,27 @@ class MarketplaceTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        loadDragons()
+//        loadDragons()
         
+        db.findAllDragonsLive { returnedDragons in
+            self.marketplace = returnedDragons
+            self.tableView.reloadData()
+            print("total: \(self.marketplace.count)")
+        }
+        
+        
+
         // Grouping by 'category'
-//        let sections = Dictionary(grouping: dragons, by: { $0.type })
+        // let sections = Dictionary(grouping: dragons, by: { $0.type })
     }
     
     func loadDragons() {
-        dragons.append(Dragon(id: "BOULDER-HOTBURPLE",type: "BOULDER", species: "HOTBURPLE", bestAt: Attribute.defence, attack: 45, defence: 80, speed: 32))
-        dragons.append(Dragon(id: "BOULDER-GRONCKLE",type: "BOULDER", species: "GRONCKLE", bestAt: Attribute.defence, attack: 40, defence: 81, speed: 37))
-        dragons.append(Dragon(id: "STRIKE-NIGHT FURY",type: "STRIKE", species: "NIGHT FURY", bestAt: Attribute.attack, attack: 79, defence: 36, speed: 69))
-        dragons.append(Dragon(id: "STRIKE-LIGHT FURY",type: "STRIKE", species: "LIGHT FURY", bestAt: Attribute.attack, attack: 79, defence: 32, speed: 54))
-        dragons.append(Dragon(id: "TRACKER-DEADLY NADDER",type: "TRACKER", species: "DEADLY NADDER", bestAt: Attribute.defence, attack: 50, defence: 75, speed: 54))
-        dragons.append(Dragon(id: "STOKER-TERRIBLE TERROR",type: "STOKER", species: "TERRIBLE TERROR", bestAt: Attribute.speed, attack: 35, defence: 25, speed: 72))
+//        marketplace.append(Dragon(id: "BOULDER-HOTBURPLE",type: "BOULDER", species: "HOTBURPLE", bestAt: Attribute.defence, attack: 45, defence: 80, speed: 32))
+//        marketplace.append(Dragon(id: "BOULDER-GRONCKLE",type: "BOULDER", species: "GRONCKLE", bestAt: Attribute.defence, attack: 40, defence: 81, speed: 37))
+//        marketplace.append(Dragon(id: "STRIKE-NIGHT FURY",type: "STRIKE", species: "NIGHT FURY", bestAt: Attribute.attack, attack: 79, defence: 36, speed: 69))
+//        marketplace.append(Dragon(id: "STRIKE-LIGHT FURY",type: "STRIKE", species: "LIGHT FURY", bestAt: Attribute.attack, attack: 79, defence: 32, speed: 54))
+//        marketplace.append(Dragon(id: "TRACKER-DEADLY NADDER",type: "TRACKER", species: "DEADLY NADDER", bestAt: Attribute.defence, attack: 50, defence: 75, speed: 54))
+//        marketplace.append(Dragon(id: "STOKER-TERRIBLE TERROR",type: "STOKER", species: "TERRIBLE TERROR", bestAt: Attribute.speed, attack: 35, defence: 25, speed: 72))
     }
 
     // MARK: - Table view data source
@@ -44,7 +53,7 @@ class MarketplaceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dragons.count
+        return marketplace.count
     }
     
     
@@ -52,7 +61,7 @@ class MarketplaceTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: MarketplaceTableViewCell.identifier, for: indexPath) as! MarketplaceTableViewCell
 
         // Configure the cell...
-        let dragon = dragons[indexPath.row]
+        let dragon = marketplace[indexPath.row]
         cell.setup(dragon: dragon)
         
         return cell
