@@ -75,6 +75,7 @@ class UsersRepository {
         do {
             // Use getDocument(as:) to directly decode the Firestore document into your User struct
             let user = try await docRef.getDocument(as: User.self)
+//            print("User \(user.username) retrieved successfully!")
             return user
         } catch let encodingError as EncodingError {
             print("Error encoding user for Firestore: \(encodingError.localizedDescription)")

@@ -12,7 +12,7 @@
         <!--Log In-->
         <scene sceneID="0J0-ui-MVf">
             <objects>
-                <viewController id="4Pi-lT-iHG" customClass="LoginViewController" customModule="HowToTrainYourDragon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="4Pi-lT-iHG" customClass="LoginViewController" customModule="HowToTrainYourDragon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2oK-iH-rEG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -463,13 +463,13 @@
                                                             <rect key="frame" x="0.0" y="39" width="323" height="41"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acquired On:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdT-5d-6IX">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="41"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="41"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2J-SXK">
-                                                                    <rect key="frame" x="98" y="0.0" width="225" height="41"/>
+                                                                    <rect key="frame" x="99" y="0.0" width="224" height="41"/>
                                                                 </datePicker>
                                                             </subviews>
                                                         </stackView>
@@ -888,14 +888,16 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="i8g-XY-ioS">
                                                     <rect key="frame" x="90" y="10" width="243" height="70"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shadow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02p-aW-FH0">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shadow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xl-jO-rXC">
                                                             <rect key="frame" x="0.0" y="0.0" width="243" height="35"/>
+                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john.doe@mailinator.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgi-tS-Bf6">
                                                             <rect key="frame" x="0.0" y="35" width="243" height="35"/>
+                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -996,7 +998,7 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0436787654" borderStyle="roundedRect" placeholder="Number" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ieh-sg-w6N">
                                                             <rect key="frame" x="171.5" y="0.0" width="171.5" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -1105,6 +1107,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="35"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.forward.fill" catalog="system" title="Log Out"/>
+                                                    <connections>
+                                                        <action selector="logoutDidPress:" destination="39K-sP-XcT" eventType="touchUpInside" id="nxo-Ra-ZOt"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1124,8 +1129,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="ohB-ad-CQj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4Vh-Vo-lmE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="iuc-Xk-6p3">
+                            <connections>
+                                <action selector="cancelDidPress:" destination="39K-sP-XcT" id="JvI-7h-L61"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4Vh-Vo-lmE">
+                            <connections>
+                                <action selector="saveDidPress:" destination="39K-sP-XcT" id="M8p-tg-exA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dobDatePicker" destination="vFl-vq-8bT" id="gCJ-hG-eVz"/>
+                        <outlet property="firstnameTextField" destination="qdd-mH-eWk" id="6mi-15-x5a"/>
+                        <outlet property="lastnameTextField" destination="eIY-JY-44a" id="OsN-Mq-XBA"/>
+                        <outlet property="memberSinceDatePicker" destination="0B4-9y-uv1" id="Sc9-pF-eMR"/>
+                        <outlet property="phoneTextField" destination="ieh-sg-w6N" id="OLV-0P-1hu"/>
+                        <outlet property="userEmailLabel" destination="Wgi-tS-Bf6" id="aZy-00-NTG"/>
+                        <outlet property="usernameLabel" destination="7xl-jO-rXC" id="eXj-U9-Anr"/>
+                        <outlet property="usernameTextField" destination="DAa-6B-Qb7" id="78T-hn-fMk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biv-Ga-bxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
