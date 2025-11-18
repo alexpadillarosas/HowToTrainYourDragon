@@ -35,8 +35,17 @@ class MarketplaceTableViewCell: UITableViewCell {
         
 //        bestAtLabel.text = dragon.bestAt.capitalized
         
-        dragonImageView.image = UIImage(named: dragon.species)
-        
+//        dragonImageView.image = UIImage(named: dragon.species)
+
+        if !dragon.species.isEmpty && UIImage(named: dragon.species) != nil {
+            dragonImageView .image = UIImage(named: dragon.species)
+                
+        }else{//This else is needed to reset the default image, else gets cached it and display the wrong one whenever the image cannot be found in the project
+                dragonImageView.image = UIImage(named: "dragon-head")
+        }
+    
+    
+    
         switch dragon.bestAt {
         case Attribute.attack:
 //        case "ATTACK":
