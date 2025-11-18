@@ -95,6 +95,52 @@ class DragonsRepository {
         }
     }
     
+    // MARK: - Add a new Dragon
+    func addDragon( dragon: Dragon) async throws {
+        do {
+            // Attempt to add a new document. If you want Firestore to generate the ID:
+            _ = try dragonsCollection.addDocument(from: dragon)
+        } catch let encodingError as EncodingError {
+            throw HttydError.encodingError(encodingError)
+        } catch {
+            throw HttydError.firestoreError(error)
+        }
+    }
+
+    // MARK: - Update an existing Dragon
+    func updateDragon( dragon: Dragon) async throws {
+        guard let dragonId = dragon.id else {
+            throw HttydError.dragonIdNotFound
+        }
+        
+        do {
+            // Merge true ensures only fields in dragon are updated
+            try dragonsCollection.document(dragonId).setData(from: dragon, merge: true)
+        } catch let encodingError as EncodingError {
+            throw HttydError.encodingError(encodingError)
+        } catch {
+            throw HttydError.firestoreError(error)
+        }
+    }
+    
+    
+    /// Deletes a user document from the "users" collection.
+    /// - Parameter userId: The ID of the user document to delete.
+    func deleteDragon(dragonId: String) async throws {
+        do {
+            // Firestore's delete() method is an async operation
+            try await dragonsCollection.document(dragonId).delete()
+            print("Dragon \(dragonId) deleted successfully!")
+        } catch {
+            // Catch any errors from Firestore and re-throw them using your custom error type
+            throw HttydError.firestoreError(error)
+        }
+    }
+    
+
+    
+    
+    
 
     /*
     func getBloodlineDragon(for myDragon : MyDragon) async throws -> Dragon {
